@@ -24,7 +24,7 @@ namespace ConsoleApp
 
             while (true)
             {
-            WriteAgain: string selectMenu = Console.ReadLine();
+            string selectMenu = Console.ReadLine();
                 int menu;
                 bool isChange = Int32.TryParse(selectMenu, out menu);
                 if (isChange && menu >= 1 && menu <= 6)
@@ -44,7 +44,16 @@ namespace ConsoleApp
                             case(int)Helper.ShopMethods.UpdateShop:
                             shopController.Update();
                             break;
-                       
+
+
+                        case (int)Helper.ShopMethods.GetShopByName:
+                            shopController.GetWithName();
+                            break;
+
+                        case (int)Helper.ShopMethods.GetShopById:
+                            shopController.GetWwithId();
+                            break;
+
                         case 6:
 
                             shopController.GetAll();

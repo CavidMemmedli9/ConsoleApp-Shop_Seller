@@ -14,5 +14,7 @@ namespace Entities.Models
         public int Age { get; set; }
 
         public int Id { get; set; }
+
+        public Shop s { get; set; }
     }
 }

@@ -100,5 +100,30 @@ namespace ConsoleApp.Controllers
                 Helper.ShowDisplay(ConsoleColor.Red, "something went wrong");
             }
         }
+
+        public void GetWithName()
+        {
+            GetAll();
+
+            Helper.ShowDisplay(ConsoleColor.Yellow, "Shop name daxil et");
+
+            string name = Console.ReadLine();
+
+            Shop shop = shopService.Get(name);
+
+            Console.WriteLine($"{shop.Name} tapildi");
+        }
+
+        public void GetWwithId()
+        {
+            GetAll();
+
+            Helper.ShowDisplay(ConsoleColor.Yellow, "Shop id daxil et");
+
+           int id = int.Parse(Console.ReadLine());
+            Shop shop = shopService.Get(id);
+
+            Console.WriteLine($"{shop.Id} tapildi");
+        }
     }
 }

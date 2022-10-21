@@ -60,12 +60,38 @@ namespace Business.Services
 
         public Shop Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Shop shop = shopRepository.Get(g => g.Id==id);
+                if (shop != null)
+                {
+                    return shop;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Shop Get(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Shop shop = shopRepository.Get(g => g.Name.ToLower() == name.ToLower());
+                if (shop != null)
+                {
+                    return shop;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public List<Shop> GetAll()
