@@ -15,6 +15,6 @@ namespace Entities.Models
 
         public int Id { get; set; }
 
-        public Shop s { get; set; }
+        public Shop Shop { get; set; }
     }
 }

@@ -13,14 +13,17 @@ namespace Utilities
             Console.ResetColor();
         }
 
-        public enum ShopMethods
+        public enum Methods
         {
             CreateShop=1,
             UpdateShop,
             DeleteShop,
             GetShopById,
             GetShopByName,
-            GetAll
+            GetAllShop,
+            CreateSeller,
+                GetAllSellers
         }
+        
     }
 }

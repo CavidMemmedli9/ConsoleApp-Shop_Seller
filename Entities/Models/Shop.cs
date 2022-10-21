@@ -14,6 +14,6 @@ namespace Entities.Models
 
         public int MaxSize { get; set; }
 
-
+        public List<Seller> Sellers { get; set; }
     }
 }

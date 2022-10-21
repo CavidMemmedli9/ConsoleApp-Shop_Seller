@@ -1,4 +1,5 @@
 ﻿using Business.Interfaces;
+using DataAccess.Repositories;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,40 @@ namespace Business.Services
 {
     public class SellerService : ISeller
     {
+
+        public ShopService shopService { get; set; }
+
+        public SellerRepository sellerRepository { get; set; }
+
+        public static int Count { get; set; }
+
+        public SellerService()
+        {
+            shopService = new ShopService();
+            sellerRepository = new SellerRepository();
+        }
+
         public Seller Create(Seller seller, string shopName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Shop shop = shopService.Get(shopName);
+                if (shop != null)
+                {
+                    seller.Id = Count;
+                    sellerRepository.Add(seller);
+                    Count++;
+                    return seller;
+                }
+               
+                    return null;
+               
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Seller Delete(int id)
@@ -35,7 +67,7 @@ namespace Business.Services
 
         public List<Seller> GetAll()
         {
-            throw new NotImplementedException();
+            return sellerRepository.GetAll();
         }
 
         public Seller Update(Seller seller, string shopName)
