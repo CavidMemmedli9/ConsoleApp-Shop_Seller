@@ -52,7 +52,29 @@ namespace ConsoleApp.Controllers
             }
         }
 
+        public void GetAllSellerWithGroupName()
+        {
+            Helper.ShowDisplay(ConsoleColor.Yellow, "shop adi daxil et");
+            string shopName = Console.ReadLine();
 
+            List<Seller> sellers = sellerService.Get(shopName);
+
+            foreach (var item in sellers)
+            {
+                Helper.ShowDisplay(ConsoleColor.DarkBlue, $"{item.Id}  {item.Name}  {item.Surname}  ");
+            }
+        }
+
+        public void GetAllSsellerWithSameName()
+        {
+            Helper.ShowDisplay(ConsoleColor.Yellow, "shop adi daxil et");
+            string sellerName = Console.ReadLine();
+
+            foreach (var item in sellerService.GetAll(sellerName))
+            {
+                Helper.ShowDisplay(ConsoleColor.DarkBlue, $"{item.Id}  {item.Name}  {item.Surname}  ");
+            }
+        }
 
     }
 }

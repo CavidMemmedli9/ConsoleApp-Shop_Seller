@@ -57,12 +57,26 @@ namespace Business.Services
 
         public List<Seller> Get(string shopName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Shop shop = shopService.Get(shopName);
+                if (shop != null)
+                {
+                    List<Seller> sellers = sellerRepository.GetAll(s => s.Shop.Name.ToLower() == shop.Name.ToLower());
+                        return sellers;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public List<Seller> GetAll(string name)
         {
-            throw new NotImplementedException();
+            return sellerRepository.GetAll(s => s.Name.ToLower() == name.ToLower());
         }
 
         public List<Seller> GetAll()

@@ -23,21 +23,21 @@ namespace ConsoleApp
                 "5-GetShopByName" +
                 "6-GetAllShop" +
                 "7-CreateSeller"+
-                "8-GetAllSellers");
+                "8-GetAllSellers"+
+                "9-GetAllSellerWithGroupName"+
+                "10-GetAllSellerWithSameName");
 
             while (true)
             {
                 string selectMenu = Console.ReadLine();
                 int menu;
                 bool isChange = Int32.TryParse(selectMenu, out menu);
-                if (isChange && menu >= 1 && menu <= 8)
+                if (isChange && menu >= 1 && menu <= 10)
                 {
                     switch (menu)
                     {
                         case (int)Helper.Methods.CreateShop:
-
-                            shopController.Create();
-
+                              shopController.Create();
                             break;
 
                         case (int)Helper.Methods.DeleteShop:
@@ -70,10 +70,27 @@ namespace ConsoleApp
                             sellerController.GetAll();
                             break;
 
+                        case (int)Helper.Methods.GetAllSellerWithGroupName:
+                            sellerController.GetAllSellerWithGroupName();
+                            break;
+
+                        case (int)Helper.Methods.GetAllSellerWithSameName:
+                            sellerController.GetAllSsellerWithSameName();
+                            break;
+
                         default:
                             break;
 
                     }
+                }
+                else if (menu == 0 && !isChange)
+                {
+                    Helper.ShowDisplay(ConsoleColor.White, "bye bye");
+                    break;
+                }
+                else
+                {
+                    Helper.ShowDisplay(ConsoleColor.Red, "Duzgun daxil et");
                 }
             }
 

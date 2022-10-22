@@ -34,7 +34,7 @@ namespace ConsoleApp.Controllers
                 newShop.MaxSize = size;
                 if (shopService.Create(newShop) != null)
                 {
-                    Helper.ShowDisplay(ConsoleColor.Cyan, $"{newShop} adli shop yaradildi");
+                    Helper.ShowDisplay(ConsoleColor.Cyan, $"{newShop.Name} adli shop yaradildi");
                 }
                 else
                 {

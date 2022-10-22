@@ -22,7 +22,10 @@ namespace Utilities
             GetShopByName,
             GetAllShop,
             CreateSeller,
-                GetAllSellers
+           GetAllSellers,
+           GetAllSellerWithGroupName,
+           GetAllSellerWithSameName
+
         }
         
     }
